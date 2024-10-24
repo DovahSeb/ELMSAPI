@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELMSAPI", "ELMSAPI\ELMSAPI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELMSAPI.Domain", "ELMSAPI.Domain\ELMSAPI.Domain.csproj", "{365A144A-2BCF-4253-BD86-E04D9E39E1AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELMSAPI.Infrastructure", "ELMSAPI.Infrastructure\ELMSAPI.Infrastructure.csproj", "{6EEF0E43-A0E0-4B76-987C-5C016D352086}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{365A144A-2BCF-4253-BD86-E04D9E39E1AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{365A144A-2BCF-4253-BD86-E04D9E39E1AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{365A144A-2BCF-4253-BD86-E04D9E39E1AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EEF0E43-A0E0-4B76-987C-5C016D352086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EEF0E43-A0E0-4B76-987C-5C016D352086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EEF0E43-A0E0-4B76-987C-5C016D352086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EEF0E43-A0E0-4B76-987C-5C016D352086}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
