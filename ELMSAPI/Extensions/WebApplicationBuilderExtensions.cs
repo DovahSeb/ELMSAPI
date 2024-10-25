@@ -1,4 +1,5 @@
-﻿using ELMSAPI.Infrastructure.Extensions;
+﻿using ELMSAPI.Exceptions;
+using ELMSAPI.Infrastructure.Extensions;
 using Serilog;
 using System.Reflection;
 
@@ -29,6 +30,13 @@ public static class WebApplicationBuilderExtensions
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        #endregion
+
+        #region Exception Handling
+
+        builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+        builder.Services.AddProblemDetails();
 
         #endregion
 
