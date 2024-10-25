@@ -34,6 +34,12 @@ public static class WebApplicationExtensions
 
         #endregion
 
+        #region Exception Handling
+
+        app.UseExceptionHandler();
+
+        #endregion
+
         return app;
     }
 }
