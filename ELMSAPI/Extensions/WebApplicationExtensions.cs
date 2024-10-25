@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using Serilog;
+using System.Globalization;
 
 namespace ELMSAPI.Extensions;
 
@@ -6,6 +7,12 @@ public static class WebApplicationExtensions
 {
     public static WebApplication ConfigureApplication(this WebApplication app)
     {
+        #region Logger
+
+        app.UseSerilogRequestLogging();
+
+        #endregion
+
         #region API Configuration
 
         app.UseHttpsRedirection();
