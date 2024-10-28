@@ -1,4 +1,5 @@
 ﻿using ELMSAPI.Application.LeaveStatuses;
+using ELMSAPI.Application.LeaveTypes;
 using ELMSAPI.Infrastructure.Database;
 using ELMSAPI.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,7 @@ public static class ServiceCollectionExtensions
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         services.AddScoped<ILeaveStatusesRepository, LeaveStatusesRepository>();
+        services.AddScoped<ILeaveTypesRepository, LeaveTypesRepository>();
 
         return services;
     }

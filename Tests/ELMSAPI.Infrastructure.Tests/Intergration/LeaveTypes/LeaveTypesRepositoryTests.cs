@@ -16,7 +16,7 @@ public class LeaveTypesRepositoryTests
     }
 
     [Fact]
-    public async Task GetLeaveStatuses_ReturnsListOfLeaveStatuses()
+    public async Task GetLeaveTypes_ReturnsListOfLeaveTypes()
     {
         var cancellationToken = new CancellationToken();
 
