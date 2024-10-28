@@ -1,4 +1,5 @@
-﻿using ELMSAPI.Exceptions;
+﻿using ELMSAPI.Application.Extensions;
+using ELMSAPI.Exceptions;
 using ELMSAPI.Infrastructure.Extensions;
 using Serilog;
 using System.Reflection;
@@ -43,6 +44,7 @@ public static class WebApplicationBuilderExtensions
         #region Project Dependencies
 
         builder.Services.AddInfrastructure(builder.Configuration);
+        builder.Services.AddApplication();
 
         #endregion
 

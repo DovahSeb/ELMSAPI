@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using ELMSAPI.Endpoints;
+using Serilog;
 using System.Globalization;
 
 namespace ELMSAPI.Extensions;
@@ -39,6 +40,12 @@ public static class WebApplicationExtensions
         app.UseExceptionHandler();
 
         #endregion
+
+        #region MinimalApi
+
+        app.MapReferencesEndpoints();
+
+        #endregion 
 
         return app;
     }
