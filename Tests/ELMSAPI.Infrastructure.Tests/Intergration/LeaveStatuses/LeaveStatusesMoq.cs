@@ -21,7 +21,7 @@ public class LeaveStatusesMoq
     {
         new () { Id = 1, Description = "Pending", Status = "I" },
         new () { Id = 2, Description = "Approved", Status = "I" },
-        new () { Id = 2, Description = "Rejected", Status = "I" }
+        new () { Id = 3, Description = "Rejected", Status = "I" }
     };
 
     public class LeaveStatusMappingProfile : Profile
