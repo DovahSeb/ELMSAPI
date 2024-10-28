@@ -1,7 +1,10 @@
-﻿using ELMSAPI.Infrastructure.Database;
+﻿using ELMSAPI.Application.LeaveStatuses;
+using ELMSAPI.Infrastructure.Database;
+using ELMSAPI.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace ELMSAPI.Infrastructure.Extensions;
 public static class ServiceCollectionExtensions
@@ -11,6 +14,10 @@ public static class ServiceCollectionExtensions
         var defaultConnectionString = configuration.GetConnectionString("DefaultConnection");
 
         services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(defaultConnectionString));
+
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+        services.AddScoped<ILeaveStatusesRepository, LeaveStatusesRepository>();
 
         return services;
     }
