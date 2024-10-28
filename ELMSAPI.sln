@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ELMSAPI.Infrastructure", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELMSAPI.Application", "ELMSAPI.Application\ELMSAPI.Application.csproj", "{3C109CD8-1C27-401C-AA14-110829A7325D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELMSAPI.Infrastructure.Tests", "Tests\ELMSAPI.Infrastructure.Tests\ELMSAPI.Infrastructure.Tests.csproj", "{52080986-3377-43F4-BC28-A98D80398B79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3C109CD8-1C27-401C-AA14-110829A7325D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C109CD8-1C27-401C-AA14-110829A7325D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C109CD8-1C27-401C-AA14-110829A7325D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52080986-3377-43F4-BC28-A98D80398B79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52080986-3377-43F4-BC28-A98D80398B79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52080986-3377-43F4-BC28-A98D80398B79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52080986-3377-43F4-BC28-A98D80398B79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
