@@ -41,56 +41,56 @@ namespace ELMSAPI.Infrastructure.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 columns: new[] { "DateCreated", "DateModified" },
-                values: new object[] { new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5893), new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5906) });
+                values: new object[] { new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.UpdateData(
                 table: "LeaveStatuses",
                 keyColumn: "Id",
                 keyValue: 2,
                 columns: new[] { "DateCreated", "DateModified" },
-                values: new object[] { new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5907), new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5908) });
+                values: new object[] { new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.UpdateData(
                 table: "LeaveStatuses",
                 keyColumn: "Id",
                 keyValue: 3,
                 columns: new[] { "DateCreated", "DateModified" },
-                values: new object[] { new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5909), new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5910) });
+                values: new object[] { new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.UpdateData(
                 table: "LeaveTypes",
                 keyColumn: "Id",
                 keyValue: 1,
                 columns: new[] { "DateCreated", "DateModified" },
-                values: new object[] { new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6009), new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6010) });
+                values: new object[] { new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.UpdateData(
                 table: "LeaveTypes",
                 keyColumn: "Id",
                 keyValue: 2,
                 columns: new[] { "DateCreated", "DateModified" },
-                values: new object[] { new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6012), new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6012) });
+                values: new object[] { new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.UpdateData(
                 table: "LeaveTypes",
                 keyColumn: "Id",
                 keyValue: 3,
                 columns: new[] { "DateCreated", "DateModified" },
-                values: new object[] { new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6014), new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6014) });
+                values: new object[] { new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.UpdateData(
                 table: "LeaveTypes",
                 keyColumn: "Id",
                 keyValue: 4,
                 columns: new[] { "DateCreated", "DateModified" },
-                values: new object[] { new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6015), new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6016) });
+                values: new object[] { new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.UpdateData(
                 table: "LeaveTypes",
                 keyColumn: "Id",
                 keyValue: 5,
                 columns: new[] { "DateCreated", "DateModified" },
-                values: new object[] { new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6017), new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6018) });
+                values: new object[] { new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) });
         }
 
         /// <inheritdoc />

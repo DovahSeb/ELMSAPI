@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ELMSAPI.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20241029100733_Added_Users_Table")]
+    [Migration("20241029113828_Added_Users_Table")]
     partial class Added_Users_Table
     {
         /// <inheritdoc />
@@ -55,24 +55,24 @@ namespace ELMSAPI.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5893),
-                            DateModified = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5906),
+                            DateCreated = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Pending",
                             Status = "I"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5907),
-                            DateModified = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5908),
+                            DateCreated = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Approved",
                             Status = "I"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5909),
-                            DateModified = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(5910),
+                            DateCreated = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Rejected",
                             Status = "I"
                         });
@@ -108,46 +108,46 @@ namespace ELMSAPI.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6009),
-                            DateModified = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6010),
+                            DateCreated = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "I",
                             Type = "Annual"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6012),
-                            DateModified = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6012),
+                            DateCreated = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "I",
                             Type = "Sick"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6014),
-                            DateModified = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6014),
+                            DateCreated = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "I",
                             Type = "Maternity"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6015),
-                            DateModified = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6016),
+                            DateCreated = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "I",
                             Type = "Paternity"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6017),
-                            DateModified = new DateTime(2024, 10, 29, 14, 7, 32, 556, DateTimeKind.Local).AddTicks(6018),
+                            DateCreated = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(2024, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "I",
                             Type = "Unpaid"
                         });
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+            modelBuilder.Entity("ELMSAPI.Domain.Models.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
