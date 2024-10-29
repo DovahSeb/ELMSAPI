@@ -1,7 +1,10 @@
 ﻿using ELMSAPI.Application.Extensions;
 using ELMSAPI.Exceptions;
+using ELMSAPI.Infrastructure.Database;
 using ELMSAPI.Infrastructure.Extensions;
+using Microsoft.AspNetCore.Identity;
 using Serilog;
+using System;
 using System.Reflection;
 
 namespace ELMSAPI.Extensions;
@@ -31,6 +34,24 @@ public static class WebApplicationBuilderExtensions
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        #endregion
+
+        #region Authorization Policy
+
+        builder.Services.AddAuthorization();
+
+        #endregion
+
+        #region Identity Provider
+
+        builder.Services.AddIdentityApiEndpoints<IdentityUser>(opt =>
+        {
+            opt.User.RequireUniqueEmail = true;
+            opt.Password.RequiredLength = 8;
+            opt.SignIn.RequireConfirmedEmail = true;
+        })
+            .AddEntityFrameworkStores<DatabaseContext>();
 
         #endregion
 

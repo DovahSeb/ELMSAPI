@@ -11,6 +11,7 @@ public class DatabaseContext : DbContext
     public DbSet<LeaveStatus> LeaveStatuses { get; set; }
     public DbSet<LeaveType> LeaveTypes { get; set; }
     public DbSet<IdentityUser> Users { get; set; }
+
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
     {
         base.ConfigureConventions(configurationBuilder);

@@ -1,4 +1,5 @@
 ﻿using ELMSAPI.Endpoints;
+using Microsoft.AspNetCore.Identity;
 using Serilog;
 using System.Globalization;
 
@@ -41,9 +42,16 @@ public static class WebApplicationExtensions
 
         #endregion
 
+        #region Authorization Policy
+
+        app.UseAuthorization();
+
+        #endregion
+
         #region MinimalApi
 
         app.MapReferencesEndpoints();
+        app.MapIdentityApi<IdentityUser>();
 
         #endregion 
 
