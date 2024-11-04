@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Employees\Queries\GetEmployees\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ELMSAPI.Domain\ELMSAPI.Domain.csproj" />
   </ItemGroup>
 
