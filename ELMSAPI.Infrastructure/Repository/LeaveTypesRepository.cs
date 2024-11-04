@@ -22,7 +22,7 @@ public sealed class LeaveTypesRepository : ILeaveTypesRepository
         var leaveTypes = await _context.LeaveTypes
             .Where(x => !x.Status.Equals("D"))
             .AsNoTracking()
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
 
         return _mapper.Map<List<LeaveTypeResponseDto>>(leaveTypes);
     }
