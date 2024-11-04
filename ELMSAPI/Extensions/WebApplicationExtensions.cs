@@ -1,5 +1,5 @@
-﻿using ELMSAPI.Endpoints;
-using Microsoft.AspNetCore.Identity;
+﻿using ELMSAPI.Domain.Models;
+using ELMSAPI.Endpoints;
 using Serilog;
 using System.Globalization;
 
@@ -50,8 +50,9 @@ public static class WebApplicationExtensions
 
         #region MinimalApi
 
+        app.MapEmployeesEndpoints();
+        app.MapIdentityApi<User>();
         app.MapReferencesEndpoints();
-        app.MapIdentityApi<IdentityUser>();
 
         #endregion 
 

@@ -29,6 +29,11 @@ public sealed class EmployeesRepository : IEmployeesRepository
             .Select(x => x.MapToEmployeeResponseDto())
             .ToList();
 
+        if (employeesDto.Count == 0)
+        {
+            return [];
+        }
+
         return employeesDto;
     }
 

@@ -29,25 +29,11 @@ public static class ReferencesEndpoints
 
     public static async Task<IResult> GetLeaveStatuses(IMediator mediator)
     {
-        try
-        {
-            return Results.Ok(await mediator.Send(new GetLeaveStatusesQuery()));
-        } 
-        catch
-        {
-            throw new ReferencesNotFoundException("LeaveStatuses");
-        }
+        return Results.Ok(await mediator.Send(new GetLeaveStatusesQuery()));
     }
 
     public static async Task<IResult> GetLeaveTypes(IMediator mediator)
     {
-        try
-        {
-            return Results.Ok(await mediator.Send(new GetLeaveTypesQuery()));
-        }
-        catch
-        {
-            throw new ReferencesNotFoundException("LeaveTypes");
-        }
+        return Results.Ok(await mediator.Send(new GetLeaveTypesQuery()));
     }
 }

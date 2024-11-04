@@ -23,6 +23,11 @@ public sealed class LeaveStatusesRepository : ILeaveStatusesRepository
             .AsNoTracking()
             .ToListAsync(cancellationToken);
 
+        if (leaveStatuses.Count == 0)
+        {
+            return [];
+        }
+
         return _mapper.Map<List<LeaveStatusResponseDto>>(leaveStatuses);
     }
 }

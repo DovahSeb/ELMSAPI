@@ -1,4 +1,5 @@
 ﻿using ELMSAPI.Application.Extensions;
+using ELMSAPI.Domain.Models;
 using ELMSAPI.Exceptions;
 using ELMSAPI.Infrastructure.Database;
 using ELMSAPI.Infrastructure.Extensions;
@@ -45,7 +46,7 @@ public static class WebApplicationBuilderExtensions
 
         #region Identity Provider
 
-        builder.Services.AddIdentityApiEndpoints<IdentityUser>(opt =>
+        builder.Services.AddIdentityApiEndpoints<User>(opt =>
         {
             opt.User.RequireUniqueEmail = true;
             opt.Password.RequiredLength = 8;

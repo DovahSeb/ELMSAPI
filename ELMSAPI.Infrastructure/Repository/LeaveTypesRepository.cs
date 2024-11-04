@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using ELMSAPI.Application.LeaveStatuses.DTOs;
 using ELMSAPI.Application.LeaveTypes;
 using ELMSAPI.Application.LeaveTypes.DTOs;
+using ELMSAPI.Domain.Models;
 using ELMSAPI.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,8 +23,13 @@ public sealed class LeaveTypesRepository : ILeaveTypesRepository
     {
         var leaveTypes = await _context.LeaveTypes
             .Where(x => !x.Status.Equals("D"))
-            .AsNoTracking()
+        .AsNoTracking()
             .ToListAsync(cancellationToken);
+
+        if (leaveTypes.Count == 0)
+        {
+            return [];
+        }
 
         return _mapper.Map<List<LeaveTypeResponseDto>>(leaveTypes);
     }
