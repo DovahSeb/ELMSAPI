@@ -50,7 +50,6 @@ public static class WebApplicationBuilderExtensions
         {
             opt.User.RequireUniqueEmail = true;
             opt.Password.RequiredLength = 8;
-            opt.SignIn.RequireConfirmedEmail = true;
         })
             .AddEntityFrameworkStores<DatabaseContext>();
 
@@ -69,6 +68,22 @@ public static class WebApplicationBuilderExtensions
         builder.Services.AddApplication();
 
         #endregion
+
+        #region Cors
+
+        builder.Services.AddCors(options =>
+        {
+            var allowedOrigin = builder.Configuration.GetValue<string>("CORSPolicy:AllowedOrigin");
+
+            options.AddDefaultPolicy(x => {
+                x.WithOrigins(allowedOrigin);
+                x.AllowAnyMethod();
+                x.AllowAnyHeader();
+                x.AllowCredentials();
+            });
+        });
+
+        #endregion Cors
 
         return builder;
     }

@@ -36,6 +36,12 @@ public static class WebApplicationExtensions
 
         #endregion
 
+        #region Cors
+
+        app.UseCors();
+
+        #endregion Cors
+
         #region Exception Handling
 
         app.UseExceptionHandler();
@@ -51,7 +57,7 @@ public static class WebApplicationExtensions
         #region MinimalApi
 
         app.MapEmployeesEndpoints();
-        app.MapIdentityApi<User>();
+        app.MapGroup("/api/users").WithTags("Users").MapIdentityApi<User>();
         app.MapReferencesEndpoints();
 
         #endregion 
