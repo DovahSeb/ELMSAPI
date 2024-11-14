@@ -1,3 +1,10 @@
 ﻿namespace ELMSAPI.Application.Employees.DTOs;
 
-public record EmployeeRequestDto (string FirstName, string LastName, string Email, DateTime DateJoined, int DepartmentId);
+public record EmployeeRequestDto 
+{
+    public required string FirstName { get; set; }
+    public required string LastName { get; set; }
+    public required string Email { get; set; }
+    public required DateTime DateJoined { get; set; }
+    public required int DepartmentId { get; set; }
+}
