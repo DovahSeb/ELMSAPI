@@ -16,19 +16,20 @@ public class CreateEmployeeHandlerTests
         var hanlder = new CreateEmployeeHandler(context);
         var token = new CancellationTokenSource().Token;
 
-        context.CreateEmployee(new EmployeeRequestDto { FirstName = command.FirstName, LastName = command.LastName, Email = command.Email, DateJoined = command.DateJoined, DepartmentId = command.DepartmentId }, token)
-            .Returns(new EmployeeResponseDto { Id = Ulid.NewUlid(), FirstName = "John", LastName = "Doe", Email = "john.doe@finance.gov.sc", Department = "Office of the Minister" });
+        context.CreateEmployee(new EmployeeRequestDto { FirstName = command.FirstName, LastName = command.LastName, Email = command.Email, DateAdded = command.DateJoined, DepartmentId = command.DepartmentId }, token)
+            .Returns(new EmployeeResponseDto { Id = Ulid.NewUlid(), FirstName = "John", LastName = "Doe", Email = "john.doe@finance.gov.sc", Department = "Office of the Minister", IsActive = true });
 
         //Act
         var result = await hanlder.Handle(command, token);
 
         //Assert
-        await context.Received(1).CreateEmployee(new EmployeeRequestDto { FirstName = command.FirstName, LastName = command.LastName, Email = command.Email, DateJoined = command.DateJoined, DepartmentId = command.DepartmentId }, token);
+        await context.Received(1).CreateEmployee(new EmployeeRequestDto { FirstName = command.FirstName, LastName = command.LastName, Email = command.Email, DateAdded = command.DateJoined, DepartmentId = command.DepartmentId }, token);
 
         Assert.NotNull(result);
         Assert.IsType<EmployeeResponseDto>(result);
         Assert.Equal(command.FirstName, result.FirstName);
         Assert.Equal(command.LastName, result.LastName);
         Assert.Equal(command.Email, result.Email);
+        Assert.True(result.IsActive);
     }
 }
