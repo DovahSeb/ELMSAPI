@@ -11,19 +11,19 @@ public class CreateEmployeeHandlerTests
     public async Task Handle_ShouldPassThrough_Command()
     {
         //Arrange
-        var command = new CreateEmployeeCommand("John", "Doe", "john.doe@finance.gov.sc", DateTime.Now.Date, 1);
+        var command = new CreateEmployeeCommand ("John", "Doe", "john.doe@finance.gov.sc", DateTime.Now.Date, 1 );
         var context = Substitute.For<IEmployeesRepository>();
         var hanlder = new CreateEmployeeHandler(context);
         var token = new CancellationTokenSource().Token;
 
-        context.CreateEmployee(new EmployeeRequestDto(command.FirstName, command.LastName, command.Email, command.DateJoined, command.DepartmentId), token)
+        context.CreateEmployee(new EmployeeRequestDto { FirstName = command.FirstName, LastName = command.LastName, Email = command.Email, DateJoined = command.DateJoined, DepartmentId = command.DepartmentId }, token)
             .Returns(new EmployeeResponseDto { Id = Ulid.NewUlid(), FirstName = "John", LastName = "Doe", Email = "john.doe@finance.gov.sc", Department = "Office of the Minister" });
 
         //Act
         var result = await hanlder.Handle(command, token);
 
         //Assert
-        await context.Received(1).CreateEmployee(new EmployeeRequestDto(command.FirstName, command.LastName, command.Email, command.DateJoined, command.DepartmentId), token);
+        await context.Received(1).CreateEmployee(new EmployeeRequestDto { FirstName = command.FirstName, LastName = command.LastName, Email = command.Email, DateJoined = command.DateJoined, DepartmentId = command.DepartmentId }, token);
 
         Assert.NotNull(result);
         Assert.IsType<EmployeeResponseDto>(result);
