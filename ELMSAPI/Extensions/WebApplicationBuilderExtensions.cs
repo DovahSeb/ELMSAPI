@@ -3,9 +3,7 @@ using ELMSAPI.Domain.Models;
 using ELMSAPI.Exceptions;
 using ELMSAPI.Infrastructure.Database;
 using ELMSAPI.Infrastructure.Extensions;
-using Microsoft.AspNetCore.Identity;
 using Serilog;
-using System;
 using System.Reflection;
 
 namespace ELMSAPI.Extensions;

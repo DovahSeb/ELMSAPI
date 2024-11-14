@@ -2,7 +2,6 @@
 using ELMSAPI.Application.Employees.DTOs;
 using ELMSAPI.Application.Employees.Queries.GetEmployeeById;
 using ELMSAPI.Application.Employees.Queries.GetEmployees;
-using ELMSAPI.Application.LeaveStatuses.Queries.GetLeaveStatuses;
 using MediatR;
 
 namespace ELMSAPI.Endpoints;
