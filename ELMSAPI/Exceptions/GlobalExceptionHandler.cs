@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Diagnostics;
 using System.Diagnostics;
-using System.Net;
 
 namespace ELMSAPI.Exceptions;
 
@@ -36,6 +35,7 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
         return exception switch
         {
             ArgumentOutOfRangeException => (StatusCodes.Status400BadRequest, exception.Message),
+            ValidationException => (StatusCodes.Status400BadRequest, "One or more validation errors occurred."),
             _ => (StatusCodes.Status500InternalServerError, "We made a mistake but we are on it!")
         };
     }
