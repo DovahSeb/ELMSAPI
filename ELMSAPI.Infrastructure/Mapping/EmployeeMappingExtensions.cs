@@ -12,8 +12,9 @@ public static class EmployeeMappingExtensions
             Id = employee.Id,
             FirstName = employee.FirstName,
             LastName = employee.LastName,
-            Email = employee.User.Email!,
-            Department = employee.Department.Name
+            Email = employee.Email,
+            Department = employee.Department.Name,
+            IsActive = employee.IsActive
         };
     }
 }
