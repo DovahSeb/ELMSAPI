@@ -9,6 +9,8 @@ public class DatabaseContext : IdentityDbContext<User>
     public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
 
     public DbSet<Employee> Employees { get; set; }
+    public DbSet<LeaveAllowance> LeaveAllowances { get; set; }
+    public DbSet<LeaveApplication> LeaveApplications { get; set; }
     public DbSet<Department> Departments { get; set; }
     public DbSet<LeaveStatus> LeaveStatuses { get; set; }
     public DbSet<LeaveType> LeaveTypes { get; set; }
