@@ -20,7 +20,6 @@ public sealed class EmployeesRepository : IEmployeesRepository
     {
         var employees = await _context.Employees
             .Where(x => !x.Status.Equals("D"))
-            .Include(x => x.User)
             .Include(x => x.Department)
             .AsNoTracking()
             .ToListAsync(cancellationToken);
@@ -41,7 +40,6 @@ public sealed class EmployeesRepository : IEmployeesRepository
     {
         var employee = await _context.Employees
             .Where(x => x.Id == id)
-            .Include(x => x.User)
             .Include(x => x.Department)
             .AsNoTracking()
             .FirstOrDefaultAsync(cancellationToken);
@@ -53,16 +51,15 @@ public sealed class EmployeesRepository : IEmployeesRepository
 
     public async Task<EmployeeResponseDto> CreateEmployee(EmployeeRequestDto employee, CancellationToken cancellationToken)
     {
-        var userId = await GetUserIdByEmail(employee.Email);
-
         var newEmployee = new Employee 
         {
             Id = Ulid.NewUlid(),
             FirstName = employee.FirstName,
             LastName = employee.LastName,
-            DateJoined = employee.DateJoined.Date,
-            UserId = userId,
+            Email = employee.Email,
+            DateAdded = employee.DateAdded.Date,
             DepartmentId = employee.DepartmentId,
+            IsActive = true,
             DateCreated = DateTime.Now,
             DateModified = DateTime.Now,
             Status = "I",
@@ -72,19 +69,5 @@ public sealed class EmployeesRepository : IEmployeesRepository
         await _context.SaveChangesAsync(cancellationToken);
 
         return await GetEmployeeById(newEmployee.Id, cancellationToken);
-    }
-
-    public async Task<string> GetUserIdByEmail(string email)
-    {
-        var user = await _context.Users
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Email == email);
-
-        if(user is null)
-        {
-            return string.Empty;
-        }
-
-        return user.Id;
     }
 }
