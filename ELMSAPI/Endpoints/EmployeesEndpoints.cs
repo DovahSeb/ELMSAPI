@@ -1,4 +1,5 @@
 ﻿using ELMSAPI.Application.Employees.Commands.CreateEmployee;
+using ELMSAPI.Application.Employees.Commands.UpdateEmployee;
 using ELMSAPI.Application.Employees.DTOs;
 using ELMSAPI.Application.Employees.Queries.GetEmployeeById;
 using ELMSAPI.Application.Employees.Queries.GetEmployees;
@@ -29,6 +30,11 @@ public static class EmployeesEndpoints
             .WithName("Create Employee")
             .WithSummary("Create an Employee");
 
+        root.MapPut("/UpdateEmployee/{id}", UpdateEmployee)
+            .Produces<EmployeeRequestDto>(StatusCodes.Status200OK)
+            .WithName("Update Employee")
+            .WithSummary("Update an Employee");
+
         return app;
     }
 
@@ -39,11 +45,8 @@ public static class EmployeesEndpoints
 
     public static async Task<IResult> GetEmployeeById(IMediator mediator, string id)
     {
-
-        if(!Ulid.TryParse(id, out var ulid))
-        {
+        if (!TryParseUlid(id, out var ulid))
             throw new ArgumentOutOfRangeException(nameof(id), "The id is invalid");
-        }
 
         var employee = await mediator.Send(new GetEmployeeByIdQuery(ulid));
         return Results.Ok(employee);
@@ -55,4 +58,19 @@ public static class EmployeesEndpoints
 
         return Results.Created($"/employees/{newEmployee.Id}", newEmployee);
     }
+
+    public static async Task<IResult> UpdateEmployee(IMediator mediator, string id, UpdateEmployeeCommand request)
+    {
+        if (!TryParseUlid(id, out var ulid))
+            throw new ArgumentOutOfRangeException(nameof(id), "The id is invalid");
+
+        var employee = await mediator.Send(CreateUpdateCommand(ulid, request));
+        return Results.Ok(employee);
+    }
+
+    private static bool TryParseUlid(string id, out Ulid ulid) =>
+    Ulid.TryParse(id, out ulid);
+
+    private static UpdateEmployeeCommand CreateUpdateCommand(Ulid ulid, UpdateEmployeeCommand request) =>
+        new(ulid, request.FirstName, request.LastName, request.Email, request.DateAdded, request.DepartmentId);
 }
