@@ -11,7 +11,7 @@ public sealed class CreateEmployeeHandler(IEmployeesRepository employeesReposito
             FirstName = command.FirstName, 
             LastName = command.LastName, 
             Email = command.Email, 
-            DateAdded = command.DateJoined, 
+            DateAdded = command.DateAdded, 
             DepartmentId = command.DepartmentId 
         };
         return await employeesRepository.CreateEmployee(newEmployee, cancellationToken);
