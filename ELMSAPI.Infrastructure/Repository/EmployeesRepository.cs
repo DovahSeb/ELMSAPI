@@ -1,4 +1,6 @@
-﻿using ELMSAPI.Application.Employees;
+﻿using ELMSAPI.Application.Common.Enums;
+using ELMSAPI.Application.Common.Exceptions;
+using ELMSAPI.Application.Employees;
 using ELMSAPI.Application.Employees.DTOs;
 using ELMSAPI.Domain.Models;
 using ELMSAPI.Infrastructure.Database;
@@ -69,5 +71,27 @@ public sealed class EmployeesRepository : IEmployeesRepository
         await _context.SaveChangesAsync(cancellationToken);
 
         return await GetEmployeeById(newEmployee.Id, cancellationToken);
+    }
+
+    public async Task<EmployeeResponseDto> UpdateEmployee(Ulid Id, EmployeeRequestDto employee, CancellationToken cancellationToken)
+    { 
+        var existingEmployee = await _context.Employees
+            .Where(x => x.Id == Id && !x.Status.Equals("D"))
+            .FirstOrDefaultAsync(cancellationToken);
+
+        NotFoundException.ThrowIfNull(existingEmployee, EntityType.Employee);
+
+        existingEmployee.FirstName = employee.FirstName;
+        existingEmployee.LastName = employee.LastName;
+        existingEmployee.Email = employee.Email;
+        existingEmployee.DateAdded = employee.DateAdded.Date;
+        existingEmployee.DepartmentId = employee.DepartmentId;
+        existingEmployee.DateModified = DateTime.Now;
+        existingEmployee.Status = "M";
+
+        _context.Employees.Update(existingEmployee);
+        await _context.SaveChangesAsync(cancellationToken);
+
+        return await GetEmployeeById(Id, cancellationToken);
     }
 }
