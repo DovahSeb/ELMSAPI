@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace ELMSAPI.Application.Employees.Commands.CreateEmployee;
+namespace ELMSAPI.Application.Employees.Commands.UpdateEmployee;
 
-public class CreateEmployeeCommandValidator : AbstractValidator<CreateEmployeeCommand>
+public class UpdateEmployeeCommandValidator : AbstractValidator<UpdateEmployeeCommand>
 {
-    public CreateEmployeeCommandValidator()
+    public UpdateEmployeeCommandValidator()
     {
         RuleFor(p => p.FirstName)
             .NotEmpty();
