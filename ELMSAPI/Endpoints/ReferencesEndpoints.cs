@@ -2,6 +2,7 @@
 using ELMSAPI.Application.Departments.Queries.GetDepartments;
 using ELMSAPI.Application.LeaveStatuses.DTOs;
 using ELMSAPI.Application.LeaveStatuses.Queries.GetLeaveStatuses;
+using ELMSAPI.Application.LeaveTypes.DTOs;
 using ELMSAPI.Application.LeaveTypes.Queries.GetLeaveTypes;
 using MediatR;
 
@@ -26,7 +27,7 @@ public static class ReferencesEndpoints
             .WithSummary("Get Leave Statuses Reference Values");
 
         root.MapGet("/GetLeaveTypes/", GetLeaveTypes)
-            .Produces<List<LeaveStatusResponseDto>>()
+            .Produces<List<LeaveTypeResponseDto>>()
             .WithName("Get Leave Types")
             .WithSummary("Get Leave Types Reference Values");
 
