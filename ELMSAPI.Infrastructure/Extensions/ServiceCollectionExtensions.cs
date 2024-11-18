@@ -1,4 +1,5 @@
-﻿using ELMSAPI.Application.Employees;
+﻿using ELMSAPI.Application.Departments;
+using ELMSAPI.Application.Employees;
 using ELMSAPI.Application.LeaveStatuses;
 using ELMSAPI.Application.LeaveTypes;
 using ELMSAPI.Infrastructure.Database;
@@ -20,6 +21,7 @@ public static class ServiceCollectionExtensions
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         services.AddScoped<IEmployeesRepository, EmployeesRepository>();
+        services.AddScoped<IDepartmentsRepository, DepartmentsRepository>();
         services.AddScoped<ILeaveStatusesRepository, LeaveStatusesRepository>();
         services.AddScoped<ILeaveTypesRepository, LeaveTypesRepository>();
 
