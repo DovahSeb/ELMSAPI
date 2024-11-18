@@ -1,7 +1,8 @@
-﻿using ELMSAPI.Application.LeaveStatuses.DTOs;
+﻿using ELMSAPI.Application.Departments.DTOs;
+using ELMSAPI.Application.Departments.Queries.GetDepartments;
+using ELMSAPI.Application.LeaveStatuses.DTOs;
 using ELMSAPI.Application.LeaveStatuses.Queries.GetLeaveStatuses;
 using ELMSAPI.Application.LeaveTypes.Queries.GetLeaveTypes;
-using ELMSAPI.Exceptions;
 using MediatR;
 
 namespace ELMSAPI.Endpoints;
@@ -14,6 +15,11 @@ public static class ReferencesEndpoints
             .WithTags("References")
             .WithOpenApi();
 
+        root.MapGet("/GetDepartments/", GetDepartments)
+            .Produces<List<DepartmentResponseDto>>()
+            .WithName("Get Departments")
+            .WithSummary("Get Departments Reference Values");
+
         root.MapGet("/GetLeaveStatuses/", GetLeaveStatuses)
             .Produces<List<LeaveStatusResponseDto>>()
             .WithName("Get Leave Statuses")
@@ -25,6 +31,11 @@ public static class ReferencesEndpoints
             .WithSummary("Get Leave Types Reference Values");
 
         return app;
+    }
+
+    public static async Task<IResult> GetDepartments(IMediator mediator)
+    {
+        return Results.Ok(await mediator.Send(new GetDepartmentsQuery()));
     }
 
     public static async Task<IResult> GetLeaveStatuses(IMediator mediator)
