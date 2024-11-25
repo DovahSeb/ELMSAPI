@@ -13,6 +13,7 @@ public static class EmployeeMappingExtensions
             FirstName = employee.FirstName,
             LastName = employee.LastName,
             Email = employee.Email,
+            DateAdded = employee.DateAdded,
             Department = employee.Department.Name,
             IsActive = employee.IsActive
         };
