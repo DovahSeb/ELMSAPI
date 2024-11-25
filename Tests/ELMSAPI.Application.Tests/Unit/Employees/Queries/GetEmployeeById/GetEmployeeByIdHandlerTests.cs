@@ -18,7 +18,7 @@ public class GetEmployeeByIdHandlerTests
         var token = new CancellationTokenSource().Token;
 
         context.GetEmployeeById(Arg.Any<Ulid>(), token)
-            .Returns(new EmployeeResponseDto { Id = Ulid.NewUlid(), FirstName = "John", LastName = "Doe", Email = "john.doe@finance.gov.sc", Department = "Office of the Minister", IsActive = true });
+            .Returns(new EmployeeResponseDto { Id = Ulid.NewUlid(), FirstName = "John", LastName = "Doe", Email = "john.doe@finance.gov.sc", DateAdded = DateTime.Now.Date, Department = "Office of the Minister", IsActive = true });
 
         //Act
         var result = await handler.Handle(query, token);

@@ -17,7 +17,7 @@ public class CreateEmployeeHandlerTests
         var token = new CancellationTokenSource().Token;
 
         context.CreateEmployee(new EmployeeRequestDto { FirstName = command.FirstName, LastName = command.LastName, Email = command.Email, DateAdded = command.DateAdded, DepartmentId = command.DepartmentId }, token)
-            .Returns(new EmployeeResponseDto { Id = Ulid.NewUlid(), FirstName = "John", LastName = "Doe", Email = "john.doe@finance.gov.sc", Department = "Office of the Minister", IsActive = true });
+            .Returns(new EmployeeResponseDto { Id = Ulid.NewUlid(), FirstName = "John", LastName = "Doe", Email = "john.doe@finance.gov.sc", DateAdded = DateTime.Now.Date, Department = "Office of the Minister", IsActive = true });
 
         //Act
         var result = await handler.Handle(command, token);
