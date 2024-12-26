@@ -7,8 +7,7 @@ public class LeaveAllowance
     public Employee Employee { get; set; } = null!;
     public required float InitialLeaveAllowance { get; set; }
     public required float CompletedMonthAllowance { get; set; }
-    public required float TotalLeaveDays {  get; set; }
-    public required float DaysTaken { get; set; }
+    public required float TotalLeaveAllowance {  get; set; }
     public required float RemainingLeaveAllowance { get; set; }
     public required string Status { get; set; }
 }
